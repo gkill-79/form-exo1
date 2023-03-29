@@ -1,4 +1,4 @@
-// import { useState } from "react";
+
 
 const ListProducts = () => {
     const productsFromApi = [
@@ -22,17 +22,15 @@ const ListProducts = () => {
       },
     ];
 
-    // const [products, setProducts] = useState(productsFromApi);
 
-    // const handleDelete = (id) => {
-    //   const newProducts = products.filter((product) => product.id !== id);
-    //   setProducts(newProducts);
-    // };
+
 
 
     // 1. Créer un composant ListProducts qui affiche la liste des produits récupérés depuis l'API.
     const handleDelete = (product) => {
+        console.log("je veux supprimer le produit ", product);
         
+        console.log("je veux supprimer le produit ", product.title, product.id);
     }
 
     // 1. Récupérer la liste des produits depuis l'API.
@@ -49,11 +47,12 @@ const ListProducts = () => {
             <ul>
 
                 {productsFromApi.map((product) => (
+
                     <li key={product.id}>
                         <h2>{product.title}</h2>
                         <p>{product.description}</p>
                         <p>{product.price} €</p>
-                        <button onClick={() => handleDelete(product.id)}>
+                        <button onClick={() => handleDelete(product)}>
                             Supprimer
                         </button>
                     </li>
